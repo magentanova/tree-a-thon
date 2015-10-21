@@ -1,32 +1,36 @@
 var _ = require('lodash');
 var geocoder = require('geocoder');
-var reducedTrees = require('../trees.reduced.json');
+var async = require('async');
+var reducedTrees = require('../data/trees.reduced.json');
 
 var fs = require('fs');
 var path = require('path');
-
 
 getAndWriteGeocodesToFile(reducedTrees);
 
 
 function getAndWriteGeocodesToFile(trees){
 
-  var geocodePromises = getGeocodePromises(trees);
+  async.mapSeries(
+      trees,
+      geocodeAsync,
+      function(err, geocodeResults){
+        var fullGeosByTreeUID;
 
-  Promise
-    .all(geocodePromises)
-    .then(function(geocodeResults){
-      var fullGeosByTreeUID = _.zipObject(_.pluck(trees, 'ID Main Table'), geocodeResults);
+        if(!_.isEmpty(err)){
+          writeToJSON('geocoding.errors', err);
+        }
+        if(!_.isEmpty(geocodeResults)){
+          fullGeosByTreeUID = _.zipObject(_.pluck(trees, 'ID Main Table'), geocodeResults);
 
-      _.each(trees, _.partial(setLatLngOnTree, geocodeResults));
+          _.each(trees, _.partial(setLatLngOnTree, geocodeResults));
 
-      writeToJSON('geocode.results', fullGeosByTreeUID);
-      writeToJSON('trees.reduced.geocoded', trees);
+          writeToJSON('geocode.results', fullGeosByTreeUID);
+          writeToJSON('trees.reduced.geocoded', trees);
+        }
 
-    })
-    .catch(function(geocodeErrors){
-      writeToJSON('geocoding.errors', geocodeErrors);
-    });
+      }
+    )
 }
 
 function writeToJSON(filename, data){
@@ -48,28 +52,20 @@ function setLatLngOnTree(datas, tree, index){
   tree.lng = datas[index].results[0].geometry.location.lng;
 }
 
-function getGeocodePromises(trees){
-  return _.map(trees, function( tree ){
-    return geocodePromise( getAddress( tree ) );
-  });
-}
 
+function geocodeAsync(tree, callback){
+  return _.delay(getGeocodeAsync, 200);
 
-function geocodePromise(address){
-  return new Promise(function(resolve, reject){
-
+  function getGeocodeAsync(){
+    var address = getAddress(tree);
     geocoder.geocode(address, function(err, data){
       if (err) {
-        reject(formatGeocodeResult(err, address));
-
-      } else if (!_.isEmpty(data.error_message) || data.status !== "OK"){
-        reject(formatGeocodeResult(data, address));
-
+        callback(err);
       } else {
-        resolve(formatGeocodeResult(data, address));
+        callback(null, formatGeocodeResult(data, address));
       }
     });
-  });
+  }
 }
 
 function formatGeocodeResult(result, query){
@@ -77,5 +73,5 @@ function formatGeocodeResult(result, query){
 }
 
 function getAddress(tree){
-  return _(tree).pick('Street Number', 'Street', 'City', 'State', 'Zip').values().value().join(' ');
+  return _(tree).pick('Street Number', 'Street', 'City', 'State', 'Zip').values().value().join(' ').trim();
 }

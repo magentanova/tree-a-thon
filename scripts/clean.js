@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var treeData = require('../trees.json');
+var treeData = require('../data/trees.json');
 var fs = require('fs');
 var path = require('path');
 
