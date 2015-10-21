@@ -1,23 +1,33 @@
 {
-  "name": "tree-a-thon",
+  "name": "treeathon",
   "version": "0.0.0",
-  "description": "Trees in Houston path finding",
-  "main": "index.js",
+  "description": "traveling salesman in the woods",
+  "main": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean-trees": "node ./scripts/clean"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/magentanova/tree-a-thon.git"
+    "url": "git+https://github.com/magentanova/tree-a-thon.git"
   },
-  "author": "",
+  "keywords": [
+    "traveling",
+    "salesman",
+    "trees",
+    "civic",
+    "public",
+    "data"
+  ],
+  "author": "the iron yard",
+  "url": "https://github.com/magentanova/tree-a-thon.git",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/magentanova/tree-a-thon/issues"
   },
-  "homepage": "https://github.com/magentanova/tree-a-thon",
+  "homepage": "https://github.com/magentanova/tree-a-thon#readme",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "JSONStream": "^1.0.6"
   }
 }
