@@ -1,5 +1,18 @@
 #Tree-a-thon!
 
+##Status
+
+Currently in the data processing phase.  Processed data has been included in the repo.  You can run the following if you have a need to re-process data:
+
+```bash
+npm run-script clean-trees
+```
+
+```bash
+npm run-script geocode-trees
+```
+
+
 ##data preprocessing
 
 ...description to come...
