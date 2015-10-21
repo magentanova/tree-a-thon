@@ -1,0 +1,30 @@
+{
+  "name": "treeathon",
+  "version": "1.0.0",
+  "description": "traveling salesman in the woods",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magentanova/tree-a-thon.git"
+  },
+  "keywords": [
+    "traveling",
+    "salesman",
+    "trees",
+    "civic",
+    "public",
+    "data"
+  ],
+  "author": "the iron yard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magentanova/tree-a-thon/issues"
+  },
+  "homepage": "https://github.com/magentanova/tree-a-thon#readme",
+  "dependencies": {
+    "JSONStream": "^1.0.6"
+  }
+}
