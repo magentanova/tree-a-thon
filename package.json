@@ -31,6 +31,8 @@
     "JSONStream": "^1.0.6",
     "async": "^1.4.2",
     "geocoder": "^0.2.2",
+    "google-map-react": "^0.7.5",
     "lodash": "^3.10.1"
-  }
+  },
+  "devDependencies": {}
 }

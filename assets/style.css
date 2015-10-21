@@ -1,0 +1,57 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.tree-marker {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #008837;
+  border-radius: 14px;
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  background: url(./tree.svg) #FFF center;
+
+  transition: border-color 0.1s ease-in-out;
+  -moz-transition: border-color 0.1s ease-in-out;
+  -ms-transition: border-color 0.1s ease-in-out;
+  -webkit-transition: border-color 0.1s ease-in-out;
+}
+
+.tree-marker[data-desc]::after {
+  content: attr(data-desc);
+  border: 3px solid #5a4336;
+  display: none;
+  min-width: 200px;
+  background-color: #FFF;
+  color: #333;
+  padding: 4px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 10;
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+}
+
+.tree-marker:hover {
+  border-color: #5a4336;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.75);
+}
+
+.tree-marker[data-desc]:hover::after {
+  display: block;
+  opacity: 1;
+}
