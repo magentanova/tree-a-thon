@@ -1,6 +1,6 @@
 {
   "name": "treeathon",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "traveling salesman in the woods",
   "main": "README.md",
   "scripts": {
@@ -19,12 +19,14 @@
     "data"
   ],
   "author": "the iron yard",
+  "url": "https://github.com/magentanova/tree-a-thon.git",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/magentanova/tree-a-thon/issues"
   },
   "homepage": "https://github.com/magentanova/tree-a-thon#readme",
   "dependencies": {
+    "lodash": "^3.10.1",
     "JSONStream": "^1.0.6"
   }
 }
