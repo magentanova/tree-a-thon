@@ -1,0 +1,17 @@
+I got a chance to talk to Jamie Zarate from Trees For Houston today. He is a project manager.
+
+He had the following comments:
+
+1. Their interest is in a map of their trees to show clients that displays their impact on the city/community.
+  a. Ideally they would have an icon on the map for each of the trees or even something as simple as a number of trees for each zip code
+2. They use a contractor for watering a portion of the trees (2,000 to 3,000 per work week). This costs ~75 cents per tree.
+  a. They have the contractor water 2,000 to 3,000 trees per work week.
+3. In the database, the volume dimension (e.g. 20 gallon) is the size of the pot that the tree is planted in, not the water requirement.
+4. Maintenance mainly deals with tree upkeep (e.g. pruning and landscaping). Once per year for each tree
+5. Several of the smaller trees must be manually watered (by the contracting company) each week until they are 2 years old; then they can survive on their own.
+
+To summarize:
+I think the map that Amanda and Justin made already covers the majority of their request. 
+I sent him the link to the map and to the gif so he could look at it and send us his feedback.
+I think all we may need to do is work on optimizing the map to help it display the data more quickly and allow for quicker traversing.
+We could also change the icon structure to show that a large quantity of trees are at some locations.
