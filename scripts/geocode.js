@@ -2,9 +2,7 @@ var _ = require('lodash');
 var geocoder = require('geocoder');
 var async = require('async');
 var reducedTrees = require('../data/trees.reduced.json');
-
-var fs = require('fs');
-var path = require('path');
+var helpers = require('./helpers');
 
 getAndWriteGeocodesToFile(reducedTrees);
 
@@ -18,23 +16,19 @@ function getAndWriteGeocodesToFile(trees){
         var fullGeosByTreeUID;
 
         if(!_.isEmpty(err)){
-          writeToJSON('geocoding.errors', err);
+          helpers.writeToJSON('geocoding.errors', err);
         }
         if(!_.isEmpty(geocodeResults)){
           fullGeosByTreeUID = _.zipObject(_.pluck(trees, 'ID Main Table'), geocodeResults);
 
           _.each(trees, _.partial(setLatLngOnTree, geocodeResults));
 
-          writeToJSON('geocode.results', fullGeosByTreeUID);
-          writeToJSON('trees.reduced.geocoded', trees);
+          helpers.writeToJSON('geocode.results', fullGeosByTreeUID);
+          helpers.writeToJSON('trees.reduced.geocoded', trees);
         }
 
       }
     )
-}
-
-function writeToJSON(filename, data){
-  fs.writeFile(path.resolve(__dirname, '../data/' + filename + '.json'), JSON.stringify(data));
 }
 
 function setLatLngOnTree(datas, tree, index){

@@ -8,12 +8,22 @@ Quick Map of Trees [here](http://magentanova.github.io/tree-a-thon/)
 
 Currently in the data processing phase.  Processed data has been included in the repo.  You can run the following if you have a need to re-process data:
 
-```bash
-npm run-script clean-trees
-```
+### Convert `./data/trees.csv` to `./data/trees.json`
 
 ```bash
-npm run-script geocode-trees
+npm run convert-trees
+```
+
+### Clean `./data/trees.json` to `./data/trees.reduced.json`
+
+```bash
+npm run clean-trees
+```
+
+### Geocode `./data/trees.reduced.json` to `./data/trees.reduced.geocoded.json`
+
+```bash
+npm run geocode-trees
 ```
 
 
