@@ -1,5 +1,7 @@
 #Tree-a-thon!
 
+[![Join the chat at https://gitter.im/magentanova/tree-a-thon](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/magentanova/tree-a-thon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Quick Map of Trees [here](http://magentanova.github.io/tree-a-thon/)
 
 ![animated-map](https://cloud.githubusercontent.com/assets/2483873/10630624/8a5e5b60-779d-11e5-944d-59a6bff98c04.gif)
